@@ -1,0 +1,69 @@
+### Test 1: Get all Priorities
+GET {{host}}/priorities
+Accept: application/json
+Authorization: Bearer {{valid_token}}
+
+### Test 2: Get a priority by priprityid(p_id)
+GET {{host}}/priorities/2
+Accept: application/json
+
+### Test 3: Post a priority
+POST {{host}}/priorities
+Accept: application/json
+Content-Type: application/json
+
+{
+  "priority": "Not Important"
+}
+
+### Test 4: Post a priority with p_id(it should give error)
+POST {{host}}/priorities
+Accept: application/json
+Content-Type: application/json
+
+{
+  "p_id": 6,
+  "priority": "Not Important"
+}
+
+### Test 5: Post a priority with empty payload{}
+POST {{host}}/priorities
+Accept: application/json
+Content-Type: application/json
+
+{
+}
+
+###Test 6: Update a priority by p_id
+PUT {{host}}/priorities/7
+Accept: application/json
+Content-Type: application/json
+
+{
+   "priority": "Kavya"
+}
+
+### Test 7: Update all information of priority
+PUT {{host}}/priorities/6
+Accept: application/json
+Content-Type: application/json
+
+{
+   "priority": "Not necessary"
+}
+
+### Test 8: Delete priority by p_id
+DELETE {{host}}/priorities/5
+Accept: application/json
+
+### Test 9: Delete a non existent priority
+DELETE  {{host}}/priorities/555
+Accept: application/json
+
+###Test 10: Get tasks by priority ID(p_id)
+GET{{host}}/priorities/2/tasks
+Accept: application/json
+
+###Test 11: Get tasks by priority ID(p_id and sprint_id
+GET{{host}}/priorities/2/sprints/3/tasks
+Accept: application/json

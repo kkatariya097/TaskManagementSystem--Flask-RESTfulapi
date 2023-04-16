@@ -1,0 +1,66 @@
+### Test 1: Get all Projects
+GET {{host}}/projects
+Accept: application/json
+
+### Test 2: Get a project by projectid(project_id)
+GET {{host}}/projects/2
+Accept: application/json
+
+### Test 3: Post a project with project_id (should give error)
+POST {{host}}/projects
+Accept: application/json
+Content-Type: application/json
+
+{
+  "project_id": 6,
+  "project_name": "Task Management System",
+  "sub_dates": "04-04-2023",
+  "total_sprints": "3"
+}
+
+### Test 4: Post a priority
+POST {{host}}/projects
+Accept: application/json
+Content-Type: application/json
+
+{
+  "project_name": "Task Management System",
+  "sub_dates": "04-04-2023",
+  "total_sprints": "3"
+}
+
+### Test 5: Post a project with empty payload{}
+POST {{host}}/projects
+Accept: application/json
+Content-Type: application/json
+
+{
+}
+
+###Test 6: Update a project by project_id
+PUT {{host}}/projects/2
+Accept: application/json
+Content-Type: application/json
+
+{
+   "sub_date": "2023-06-23"
+}
+
+### Test 7: Update all information of project
+PUT {{host}}/projects/2
+Accept: application/json
+Content-Type: application/json
+
+{
+  "project_name": "LMS",
+  "sub_dates": "10-12-2023",
+  "total_sprints": "7"
+}
+
+### Test 8: Delete project by project_id
+DELETE {{host}}/projects/6
+Accept: application/json
+
+### Test 9: Delete a non existent project
+DELETE  {{host}}/projects/100
+Accept: application/json

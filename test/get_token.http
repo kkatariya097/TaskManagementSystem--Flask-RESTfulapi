@@ -1,0 +1,13 @@
+### 01 - Post a valid (username, password) pair to get a token
+POST {{host_auth}}/login
+Content-Type: application/json
+
+{
+  "username": "denis",
+  "password": "denis123"
+}
+
+> {%
+    client.global.set("valid_token", response.body["access_token"])
+    client.global.set("valid_refresh_token", response.body["refresh_token"])
+%}

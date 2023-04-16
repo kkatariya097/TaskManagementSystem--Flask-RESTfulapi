@@ -1,0 +1,49 @@
+### Test 1: Get all sprints
+GET {{host}}/sprints
+Accept: application/json
+
+### Test 2: Get a sprint by sprintid(sprint_id)
+GET {{host}}/sprints/2
+Accept: application/json
+
+### Test 3: Get a non existent sprint
+GET {{host}}/sprints/555
+Accept: application/json
+
+### Test 4: Post a new sprint
+POST {{host}}/sprints
+Accept: application/json
+Content-Type: application/json
+
+{
+  "project_id": 5,
+  "start_date": "2023-04-05",
+  "end_date": "2023-04-30"
+}
+
+### Test 5: Update a sprint by sprint_id
+PUT {{host}}/sprints/2
+Accept: application/json
+Content-Type: application/json
+
+{
+  "project_id": 2,
+  "start_date": "2023-05-01",
+  "end_date": "2023-05-10"
+}
+
+### Test 6: Delete a Sprint by sprint_id
+DELETE {{host}}/sprints/5
+Accept: application/json
+
+### Test 7: Delete a non existent sprint
+DELETE  {{host}}/sprints/555
+Accept: application/json
+
+### Test 8: Get all tasks by sprint_id
+GET {{host}}/sprints/4/tasks
+Accept: application/json
+
+
+
+

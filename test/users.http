@@ -1,0 +1,67 @@
+### Test 1: Get all users
+GET {{host}}/users
+Accept: application/json
+
+### Test 2: Get a user by userid(user_id)
+GET {{host}}/users/2
+Accept: application/json
+
+### Test 3: Post a user
+POST {{host}}/users
+Accept: application/json
+Content-Type: application/json
+
+{
+  "first_name": "Gurmeet",
+  "last_name": "Dahiya",
+  "email": "gs@gmail.com"
+}
+
+### Test 4: Post a priority with user_id(it should give error)
+POST {{host}}/users
+Accept: application/json
+Content-Type: application/json
+
+{
+
+  "user_id": 6,
+  "first_name": "Gurmeet",
+  "last_name": "Dahiya",
+  "email": "gs@gmail.com"
+}
+
+### Test 5: Post a user with empty payload{}
+POST {{host}}/users
+Accept: application/json
+Content-Type: application/json
+
+{
+}
+
+###Test 6: Update a user by user_id
+PUT {{host}}/users/2
+Accept: application/json
+Content-Type: application/json
+
+{
+      "first_name": "Andy"
+}
+
+### Test 7: Update all information of user
+PUT {{host}}/users/2
+Accept: application/json
+Content-Type: application/json
+
+{
+  "first_name": "Rahul",
+  "last_name": "Hooda",
+  "email": "rahul@hotmail.com"
+}
+
+### Test 8: Delete user by user_id
+DELETE {{host}}/users/5
+Accept: application/json
+
+### Test 9: Delete a non existent user
+DELETE  {{host}}/users/100
+Accept: application/json

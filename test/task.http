@@ -1,0 +1,59 @@
+### Test 1: Get all tasks
+GET {{host}}/tasks
+Accept: application/json
+
+### Test 2: Get a task by taskid(task_id)
+GET {{host}}/tasks/2
+Accept: application/json
+Authorization: Bearer {{valid_token}}
+
+### Test 3: Get a non existent task
+GET {{host}}/tasks/555
+Accept: application/json
+
+### Test 4: Post a new task
+POST {{host}}/tasks
+Accept: application/json
+Content-Type: application/json
+
+{
+  "description": "Create a Sequence Diagram",
+  "user_id": 3,
+  "sprint_id": 4,
+  "p_id": 4,
+  "status_id": 4
+}
+
+### Test 5: Update a task by task_id
+PUT {{host}}/tasks/9
+Accept: application/json
+Content-Type: application/json
+
+{
+  "description": "Create a State Diagram",
+  "user_id": 2,
+  "sprint_id": 3,
+  "p_id": 2,
+  "status_id": 2
+}
+
+### Test 6: Update a task with all information
+PUT {{host}}/tasks/3
+Accept: application/json
+Content-Type: application/json
+
+{
+  "description": "Add new function to calculate total",
+  "user_id": 3,
+  "sprint_id": 4,
+  "p_id": 4,
+  "status_id": 4
+}
+
+### Test 7: Delete a task by task_id
+DELETE {{host}}/tasks/9
+Accept: application/json
+
+### Test 8: Delete a non existent task
+DELETE  {{host}}/tasks/8888
+Accept: application/json
